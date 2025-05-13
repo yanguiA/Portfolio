@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME PROJECT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-white">
+    <div class="min-h-screen">
+        <section class="h-screen relative overflow-hidden flex items-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black z-10"></div>
+            <div class="absolute inset-0 z-0">
+                <img src="img/game/game.gif" alt="Blender Gif" class="w-full h-full object-cover opacity-50">
+            </div>
+            <div class="container mx-auto px-4 relative z-20">
+                <div class="max-w-2xl">
+                    <p class="text-neutral-400 text-sm tracking-wider mb-4">01 — GAME PROJECT</p>
+                    <h1 class="text-6xl lg:text-8xl font-light mb-8 gradient-text leading-none">Blender</h1>
+                    <p class="text-xl text-neutral-300 leading-relaxed mb-8">
+                        Collection d'assets 3D créés pour un projet de jeu vidéo,
+                        sous Blender.
+                    </p>
+                    <div class="flex gap-4 flex-wrap">
+                        <span
+                            class="px-6 py-2 rounded-full border border-white/20 hover:border-white/40 transition-colors">Blender</span>
+                        <span
+                            class="px-6 py-2 rounded-full border border-white/20 hover:border-white/40 transition-colors">Game
+                            Design</span>
+                        <span
+                            class="px-6 py-2 rounded-full border border-white/20 hover:border-white/40 transition-colors">3D
+                            Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-neutral-950">
+            <div class="container mx-auto px-4">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-3xl font-light mb-16">Assets Collection</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="group">
+
+
+
+                            <!-- ASSETS 1 -->
+                            <div class="project-card bg-white/5 p-6 rounded-2xl space-y-4 backdrop-blur-sm">
+                                <div class="aspect-square rounded-xl overflow-hidden relative">
+                                    <div class="view-content">
+                                        <img src="img/game/assets1.png" alt="Module Principal"
+                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                    </div>
+                                    <div class="view-content hidden relative w-full h-full">
+                                        <model-viewer src="assets/models/asset1.glb" camera-controls auto-rotate
+                                            camera-orbit="0deg 75deg 105%"
+                                            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></model-viewer>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="text-lg font-medium">Armoire de rangement</h3>
+                                        <p class="text-sm text-neutral-400">booooooooooooooooooo</p>
+                                    </div>
+                                    <button class="view-toggle p-2 hover:bg-white/10 rounded-lg transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M4 7l2 1M4 7l2-1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--  -->
+
+
+                            <!-- ASSETS 2 -->
+                            <div class="project-card bg-white/5 p-6 rounded-2xl space-y-4 backdrop-blur-sm">
+                                <div class="aspect-square rounded-xl overflow-hidden relative">
+                                    <div class="view-content">
+                                        <img src="img/game/assets2.png" alt="Module Principal"
+                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                    </div>
+                                    <div class="view-content hidden relative w-full h-full">
+                                        <model-viewer src="assets/models/asset2.glb" camera-controls auto-rotate
+                                            camera-orbit="0deg 75deg 105%"
+                                            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></model-viewer>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="text-lg font-medium">Armoire de rangement</h3>
+                                        <p class="text-sm text-neutral-400">Fais en 12H</p>
+                                    </div>
+                                    <button class="view-toggle p-2 hover:bg-white/10 rounded-lg transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M4 7l2 1M4 7l2-1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--  -->
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

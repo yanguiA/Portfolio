@@ -1,0 +1,284 @@
+@keyframes spin-slow {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-slower {
+    to { transform: rotate(-360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-slower {
+    animation: spin-slower 12s linear infinite;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: brightness(1.2);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.gradient-text.animate-in {
+    animation: revealText 0.3s cubic-bezier(0.4, 0, 0, 1) forwards;
+}
+
+@keyframes revealText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-link {
+    @apply block transition-all duration-300;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300;
+}
+
+.nav-link.active div {
+    @apply bg-white/20;
+}
+
+.nav-link:hover div {
+    @apply transform scale-110;
+}
+
+.nav-link:hover::after {
+    @apply w-full;
+}
+
+.project-card {
+    @apply relative transform transition-all duration-500;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover .view-toggle {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:nth-child(1) { transition-delay: 0.05s; }
+.project-card:nth-child(2) { transition-delay: 0.1s; }
+.project-card:nth-child(3) { transition-delay: 0.15s; }
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-zinc-900;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.nav-tab {
+    @apply relative py-2 opacity-50 hover:opacity-100 transition-opacity duration-300;
+}
+
+.nav-tab::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300;
+}
+
+.nav-tab.active {
+    @apply opacity-100;
+}
+
+.nav-tab.active::after {
+    @apply w-full;
+}
+
+.tab-button {
+    @apply relative text-white/70 hover:text-white transition-colors duration-300;
+}
+
+.tab-button.active {
+    @apply text-white;
+}
+
+.tab-button.active > div {
+    @apply bg-white/10;
+}
+
+.tab-button.active::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-1 h-1 bg-white rounded-full transform -translate-x-1/2 translate-y-2;
+}
+
+model-viewer {
+    @apply w-full h-full rounded-xl;
+    --poster-color: transparent;
+    --progress-bar-color: white;
+}
+
+.fade-enter {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.content-section {
+    @apply opacity-0 transform translate-y-4 transition-all duration-500;
+}
+
+.content-section.active {
+    @apply opacity-100 transform translate-y-0;
+}
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.image-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10;
+}
+
+.image-card img {
+    @apply transition-transform duration-700;
+}
+
+.image-card:hover img {
+    @apply transform scale-110;
+}
+
+.view-toggle {
+    @apply text-white/75 hover:text-white transition-colors;
+}
+
+.view-container {
+    @apply absolute inset-0 transition-opacity duration-300;
+}
+
+.view-container.hidden {
+    @apply opacity-0 pointer-events-none;
+}
+
+.view-container:not(.hidden) {
+    @apply opacity-100 pointer-events-auto;
+}
+
+.view-content {
+    @apply absolute inset-0 w-full h-full transition-opacity duration-300;
+    min-height: 300px;
+    @apply transition-all duration-500;
+    transition: all 0.3s ease;
+}
+
+.view-content model-viewer {
+    @apply rounded-xl;
+    --poster-color: transparent;
+    --progress-bar-color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.view-content.hidden {
+    transform: scale(0.95);
+}
+
+/* Mobile Navigation */
+@media (max-width: 1024px) {
+    .nav-link {
+        @apply relative;
+    }
+    
+    .nav-link.active div {
+        @apply bg-white/20;
+    }
+    
+    .nav-link:hover div {
+        @apply transform scale-105;
+    }
+}
+
+.overflow-x-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+    display: none;
+}
+
+/* Nouvelles animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes reveal {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-reveal {
+    animation: reveal 0.8s ease-out forwards;
+}
+
+.animate-slide {
+    animation: slide-in 0.8s ease-out forwards;
+}
+
+.project-card {
+    @apply relative transform transition-all duration-500;
+}
+
+@media (hover: hover) {
+    .project-card:hover {
+        @apply -translate-y-2;
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0, 1);
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0, 1);
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-zinc-900 text-white">
+    <div class="lg:hidden fixed top-0 w-full bg-zinc-900/90 backdrop-blur-lg border-b border-white/10 z-50">
+        <div class="px-4 py-4 flex items-center">
+            <div class="w-12 aspect-square rounded-xl bg-white/10 overflow-hidden mr-4">
+                <img src="img/logo.png" alt="Logo C" class="w-full h-full object-cover">
+            </div>
+            <nav class="overflow-x-auto">
+                <ul class="flex space-x-6 min-w-max">
+                    <li>
+                        <a href="#" class="nav-link active" data-section="game">
+                            <div class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 flex items-center space-x-2">
+                                <span>01</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="ui">
+                            <div class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 flex items-center space-x-2">
+                                <span>02</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="hidden lg:block sidebar fixed top-0 left-0 h-full w-20 border-r border-white/10 z-50">
+        <div class="flex flex-col items-center h-full py-8">
+            <div class="logo mb-12 w-full px-2">
+                <div class="w-full aspect-square rounded-2xl bg-white/10 hover:bg-white/20 transition-all overflow-hidden">
+                    <img src="img/logo.png" alt="Logo C" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <nav class="flex-1">
+                <ul class="space-y-6">
+                    <li>
+                        <a href="#" class="nav-link active" data-section="game">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all">
+                                <span>01</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link" data-section="ui">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all">
+                                <span>02</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main class="lg:ml-20 mt-[72px] lg:mt-0">
+        <div id="content" class="transition-all duration-500"></div>
+    </main>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
