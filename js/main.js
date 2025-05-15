@@ -102,16 +102,18 @@ function initializeScrollAnimations() {
 
     const elements = document.querySelectorAll([
         '.project-card',
-        'h1, h2, h3',
+        'h1, h2, h3, h4, h5, h6',
         'p',
         '.grid',
         'img',
         'model-viewer',
-        '.flex'
+        '.flex',
+        'ul',
+        'li'
     ].join(','));
 
     elements.forEach((el, index) => {
-        el.style.transitionDelay = `${index * 0.025}s`;
+        el.style.transitionDelay = `${index * 0.005}s`;
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
