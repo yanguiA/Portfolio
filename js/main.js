@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             content.style.opacity = '0';
             content.style.transform = 'translateY(20px)';
-            
+
             await new Promise(r => setTimeout(r, 150));
 
             const response = await fetch(sections[section]);
@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (section === 'game') {
                 initializeViewToggles();
             }
-            
+
             initializeScrollAnimations();
-            
+
             content.style.opacity = '1';
             content.style.transform = 'translateY(0)';
-            
+
             window.scrollTo(0, 0);
         } catch (error) {
             console.error('Error loading section:', error);
@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeSection) {
         loadSection(activeSection);
     }
+
+
 });
 
 function initializeViewToggles() {
@@ -61,17 +63,17 @@ function initializeViewToggles() {
     cards.forEach(card => {
         const toggle = card.querySelector('.view-toggle');
         const views = card.querySelectorAll('.view-content');
-        
+
         if (toggle && views.length === 2) {
             toggle.addEventListener('click', (e) => {
                 e.stopPropagation();
-                
+
                 views.forEach(view => view.classList.toggle('hidden'));
-                
+
                 const modelViewer = views[1].querySelector('model-viewer');
                 if (modelViewer && !views[1].classList.contains('hidden')) {
                     modelViewer.cameraOrbit = '0deg 75deg 105%';
-                    
+
                     modelViewer.addEventListener('load', () => {
                         console.log('Model loaded successfully');
                     });
