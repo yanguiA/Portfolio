@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio | Amandine Brunaux</title>
+    <meta name="description"
+        content="Portfolio professionnel présentant mes créations en modélisation 3D avec Blender et mes projets de design UI/UX réalisés avec Figma. Découvrez mes compétences en game design et en création d'interfaces.">
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -19,6 +22,16 @@
             <div class="w-12 aspect-square rounded-xl bg-white/10 overflow-hidden mr-4">
                 <img src="img/logo.png" alt="Logo C" class="w-full h-full object-cover">
             </div>
+
+            <button id="aboutBtnMobile"
+                class="about-btn mr-4 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+
             <nav class="overflow-x-auto">
                 <ul class="flex space-x-6 min-w-max">
                     <li>
@@ -38,15 +51,73 @@
                 </ul>
             </nav>
         </div>
+
+        <div id="aboutPanelMobile"
+            class="about-panel closed-mobile w-full bg-zinc-800/95 backdrop-blur-lg border-b border-white/10 overflow-hidden">
+            <div class="p-6 max-h-[80vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-medium"> 🌟 À propos de moi</h2>
+                    <button id="closeAboutMobile" class="text-white/60 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <p class="text-neutral-300 leading-relaxed">
+                                Curieuse et impliquée, j’aime faire avancer les <strong>idées</strong> et accompagner
+                                les équipes.
+                                <br><br>
+                                Que ce soit dans mes projets pros ou perso (en 3D, vidéo ou design d’interface), je
+                                participe à la
+                                création, je coordonne et je veille à ce que tout soit cohérent, en privilégiant
+                                toujours le travail
+                                d’équipe.
+                            <h3>
+                                🤝 Soft skills:
+                            </h3>
+                            <ul class="ul-custom text-neutral-300">
+                                <li> Esprit d'analyse</li>
+                                <li> Créativité </li>
+                                <li> Esprit d'équipe </li>
+                                <li> Curiosité </li>
+                            </ul>
+
+                            </p>
+                        </div>
+                        <!-- <div class="md:w-1/2">
+                            <img src="img/game/chaise.webp" alt="Modélisation 3D"
+                                class="about-img rounded-xl w-full h-60 object-cover">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="hidden lg:block sidebar fixed top-0 left-0 h-full w-20 border-r border-white/10 z-50">
         <div class="flex flex-col items-center h-full py-8">
-            <div class="logo mb-12 w-full px-2">
-                <div class="w-full aspect-square rounded-2xl bg-white/10 hover:bg-white/20 transition-all overflow-hidden">
+            <div class="logo mb-6 w-full px-2">
+                <div
+                    class="w-full aspect-square rounded-2xl bg-white/10 hover:bg-white/20 transition-all overflow-hidden">
                     <img src="img/logo.png" alt="Logo C" class="w-full h-full object-cover">
                 </div>
             </div>
+
+            <button id="aboutBtnDesktop"
+                class="about-btn mb-8 w-14 h-14 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+
             <nav class="flex-1">
                 <ul class="space-y-6">
                     <li>
@@ -70,9 +141,96 @@
         </div>
     </div>
 
+    <div id="aboutPanelDesktop"
+        class="about-panel closed-desktop fixed left-20 top-0 h-full w-96 bg-zinc-800/95 backdrop-blur-lg border-r border-white/10 z-40 overflow-hidden">
+        <div class="p-8 h-full overflow-y-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-medium"> 🌟 À propos de moi</h2>
+                <button id="closeAboutDesktop" class="text-white/60 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mb-10">
+                <p class="text-neutral-300 leading-relaxed">
+                    Curieuse et impliquée, j’aime faire avancer les <strong>idées</strong> et accompagner les équipes.
+                    <br><br>
+                    Que ce soit dans mes projets pros ou perso (en 3D, vidéo ou design d’interface), je participe à la
+                    création, je coordonne et je veille à ce que tout soit cohérent, en privilégiant toujours le travail
+                    d’équipe.
+                <h3>
+                    🤝 Soft skills:
+                </h3>
+                <ul class="ul-custom text-neutral-300">
+                    <li> Esprit d'analyse</li>
+                    <li> Créativité </li>
+                    <li> Esprit d'équipe </li>
+                    <li> Curiosité </li>
+                </ul>
+
+                </p>
+                <!-- <img src="img/game/innocent.webp" alt="Modélisation 3D" class="about-img rounded-xl mb-6"> -->
+            </div>
+        </div>
+    </div>
+
     <main class="lg:ml-20 mt-[72px] lg:mt-0">
         <div id="content" class="transition-all duration-500"></div>
     </main>
+
+    <button id="contactBtn"
+        class="contact-btn fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 flex items-center justify-center z-50 hover:bg-white/20 shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+    </button>
+
+    <div id="contactBox"
+        class="contact-box fixed bottom-6 right-6 w-full max-w-sm bg-zinc-800/90 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl z-40 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-medium">Me contacter</h3>
+            <button id="closeContactBox" type="button" aria-label="Fermer" class="text-white/60 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        <form id="contactForm" method="POST">
+            <div class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm text-white/60 mb-1">Nom</label>
+                    <input type="text" id="name" name="name" required maxlength="100" pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-']+"
+                        class="form-input w-full bg-white/5 rounded-xl px-4 py-3 text-white focus:outline-none">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm text-white/60 mb-1">Email</label>
+                    <input type="email" id="email" name="email" required maxlength="100"
+                        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                        class="form-input w-full bg-white/5 rounded-xl px-4 py-3 text-white focus:outline-none">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm text-white/60 mb-1">Message</label>
+                    <textarea id="message" name="message" rows="4" required maxlength="1000"
+                        class="form-input w-full bg-white/5 rounded-xl px-4 py-3 text-white focus:outline-none resize-none"></textarea>
+                </div>
+                <input type="hidden" id="csrf_token" name="csrf_token" value="">
+                <button type="submit"
+                    class="submit-btn w-full bg-white/10 hover:bg-white/15 text-white py-3 px-6 rounded-xl border border-white/10">
+                    Envoyer
+                </button>
+                <div id="formStatus" class="text-sm text-center">
+                    Cela va vous dirigez vers votre boîte mail !
+                </div>
+            </div>
+        </form>
+    </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
