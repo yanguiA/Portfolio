@@ -134,6 +134,24 @@ function init3DModelAnimation() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    function generateCSRFToken() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let token = '';
+        for (let i = 0; i < 32; i++) {
+            token += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return token;
+    }
+
+    const csrfToken = generateCSRFToken();
+    document.getElementById('csrf_token').value = csrfToken;
+    sessionStorage.setItem('csrf_token', csrfToken);
+
+    const contactBtn = document.getElementById('contactBtn');
+    const contactBox = document.getElementById('contactBox');
+    const closeContactBox = document.getElementById('closeContactBox');
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
 
     const aboutBtnDesktop = document.getElementById('aboutBtnDesktop');
     const aboutBtnMobile = document.getElementById('aboutBtnMobile');
@@ -141,6 +159,103 @@ document.addEventListener('DOMContentLoaded', function () {
     const aboutPanelMobile = document.getElementById('aboutPanelMobile');
     const closeAboutDesktop = document.getElementById('closeAboutDesktop');
     const closeAboutMobile = document.getElementById('closeAboutMobile');
+
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function () {
+            contactBox.classList.add('active');
+            contactBtn.style.opacity = '0';
+            contactBtn.style.pointerEvents = 'none';
+        });
+    }
+
+    if (closeContactBox) {
+        closeContactBox.addEventListener('click', function () {
+            contactBox.classList.remove('active');
+            if (contactBtn) {
+                contactBtn.style.opacity = '1';
+                contactBtn.style.pointerEvents = 'auto';
+            }
+        });
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const submittedToken = document.getElementById('csrf_token').value;
+
+            if (submittedToken !== sessionStorage.getItem('csrf_token')) {
+                showFormStatus('Erreur de sécurité. Veuillez rafraîchir la page.', 'error');
+                return;
+            }
+
+            const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s\-']+$/;
+            const emailRegex = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i;
+
+            if (!nameRegex.test(name)) {
+                showFormStatus('Nom invalide', 'error');
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                showFormStatus('Email invalide', 'error');
+                return;
+            }
+
+            if (message.length < 5 || message.length > 1000) {
+                showFormStatus('Le message doit contenir entre 5 et 1000 caractères', 'error');
+                return;
+            }
+
+            const sanitizedName = escapeHTML(name);
+            const sanitizedEmail = escapeHTML(email);
+            const sanitizedMessage = escapeHTML(message);
+
+            const subject = encodeURIComponent(`Message de ${sanitizedName} via portfolio`);
+            const body = encodeURIComponent(`Nom: ${sanitizedName}\nEmail: ${sanitizedEmail}\n\nMessage:\n${sanitizedMessage}`);
+
+            showFormStatus('Message envoyé avec succès!', 'success');
+
+            setTimeout(() => {
+                window.location.href = `mailto:amandine.brx10@gmail.com?subject=${subject}&body=${body}`;
+
+                contactForm.reset();
+                const newCsrfToken = generateCSRFToken();
+                document.getElementById('csrf_token').value = newCsrfToken;
+                sessionStorage.setItem('csrf_token', newCsrfToken);
+
+                contactBox.classList.remove('active');
+                if (contactBtn) {
+                    contactBtn.style.opacity = '1';
+                    contactBtn.style.pointerEvents = 'auto';
+                }
+                formStatus.classList.add('hidden');
+            }, 1500);
+        });
+    }
+
+    function escapeHTML(str) {
+        return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function showFormStatus(message, type) {
+        formStatus.textContent = message;
+        formStatus.classList.remove('hidden', 'text-green-400', 'text-red-400');
+
+        if (type === 'success') {
+            formStatus.classList.add('text-green-400');
+        } else if (type === 'error') {
+            formStatus.classList.add('text-red-400');
+        }
+    }
 
     if (aboutBtnDesktop) {
         aboutBtnDesktop.addEventListener('click', function () {
@@ -183,6 +298,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.addEventListener('click', function (e) {
+        if (contactBox && contactBtn &&
+            !contactBox.contains(e.target) &&
+            e.target !== contactBtn &&
+            contactBox.classList.contains('active')) {
+            contactBox.classList.remove('active');
+            contactBtn.style.opacity = '1';
+            contactBtn.style.pointerEvents = 'auto';
+        }
 
         if (aboutPanelDesktop && aboutBtnDesktop &&
             !aboutPanelDesktop.contains(e.target) &&
@@ -204,4 +327,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    if (window.self !== window.top) {
+        document.body.innerHTML = 'Cette page ne peut pas être affichée dans un iframe.';
+    }
 });
