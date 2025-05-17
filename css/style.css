@@ -240,45 +240,6 @@ h5 {
     list-style-type: disc !important;
 }
 
-.contact-btn {
-    transition: all 0.3s ease;
-}
-
-.contact-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
-}
-
-.contact-box {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.contact-box.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-}
-
-.form-input {
-    transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.form-input:focus {
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
-}
-
-.submit-btn {
-    transition: all 0.2s ease;
-}
-
-.submit-btn:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
 
 .about-panel {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
