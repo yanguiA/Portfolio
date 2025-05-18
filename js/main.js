@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const content = document.getElementById('content');
     const sections = {
-        game: 'project1.html',
-        ui: 'project2.html'
+        game: 'project1.html?v=2',
+        ui: 'project2.html?v=2'
     };
 
     async function loadSection(section) {
