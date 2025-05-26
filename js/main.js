@@ -5,6 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
         easing: 'ease-out'
     });
 
+    function openAboutPanelOnLoad() {
+        const aboutPanelDesktop = document.getElementById('aboutPanelDesktop');
+        const aboutPanelMobile = document.getElementById('aboutPanelMobile');
+        const aboutBtnDesktop = document.getElementById('aboutBtnDesktop');
+        const aboutBtnMobile = document.getElementById('aboutBtnMobile');
+
+        if (window.innerWidth >= 1024) { // Desktop
+            if (aboutPanelDesktop && aboutBtnDesktop) {
+                aboutPanelDesktop.classList.remove('closed-desktop');
+                aboutBtnDesktop.classList.add('active');
+            }
+        } else { // Mobile
+            if (aboutPanelMobile && aboutBtnMobile) {
+                aboutPanelMobile.classList.remove('closed-mobile');
+                aboutBtnMobile.classList.add('active');
+            }
+        }
+    }
+
+    setTimeout(openAboutPanelOnLoad, 500);
+
     const content = document.getElementById('content');
     const sections = {
         game: 'project1.html?v=2',
